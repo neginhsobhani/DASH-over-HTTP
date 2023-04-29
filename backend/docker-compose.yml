@@ -1,0 +1,15 @@
+version: "3"
+services:
+  backend:
+    image: smf8/mm-final-project
+    container_name: backend
+    ports:
+      - "8000:8000"
+  nginx:
+    build: 
+      context: .
+      dockerfile: Dockerfile_nginx
+    volumes:
+      - './media/dash:/tmp/dash'
+    ports:
+      - "3000:3000"
